@@ -7,14 +7,14 @@ const Header = () => (
   <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
     <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
       <div className="flex items-center gap-2">
-        <div className="bg-green-700 p-2 rounded-lg">
+        <div className="bg-blue-700 p-2 rounded-lg">
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
           </svg>
         </div>
         <div>
           <h1 className="text-lg font-bold text-slate-900 tracking-tight leading-none">Sandhurst Geography</h1>
-          <p className="text-[10px] font-bold text-green-700 uppercase tracking-widest mt-0.5">3-Mark Pro Expert</p>
+          <p className="text-[10px] font-bold text-blue-700 uppercase tracking-widest mt-0.5">3-Mark Pro Expert</p>
         </div>
       </div>
       <div className="hidden sm:flex items-center gap-4 text-sm font-medium text-slate-500">
@@ -37,7 +37,7 @@ const TopicCard: React.FC<TopicCardProps> = ({ topic, selected, onClick }) => (
     onClick={onClick}
     className={`p-4 rounded-xl text-left transition-all border-2 ${
       selected 
-      ? 'border-green-600 bg-green-50 text-green-800 shadow-sm' 
+      ? 'border-blue-600 bg-blue-50 text-blue-800 shadow-sm' 
       : 'border-slate-100 bg-white text-slate-600 hover:border-slate-200 hover:shadow-sm'
     }`}
   >
@@ -123,13 +123,13 @@ export default function App() {
 
         {!currentQuestion && !loading && (
           <div className="mb-12 text-center max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <div className="inline-block bg-green-100 text-green-800 text-[10px] font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-widest">
+            <div className="inline-block bg-blue-100 text-blue-800 text-[10px] font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-widest">
               Sandhurst School Geography Department
             </div>
             <h2 className="text-3xl font-bold text-slate-900 mb-4">3-Mark Structure Practice</h2>
             <p className="text-slate-600 mb-8 max-w-xl mx-auto">
               Master the Edexcel Spec A technique: 
-              <span className="block font-bold mt-2 text-green-700 italic">"Point &rarr; Explanation &rarr; Development"</span>
+              <span className="block font-bold mt-2 text-blue-700 italic">"Point &rarr; Explanation &rarr; Development"</span>
             </p>
             
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
@@ -155,7 +155,7 @@ export default function App() {
 
         {loading && (
           <div className="flex flex-col items-center justify-center py-24">
-            <div className="w-12 h-12 border-4 border-green-700 border-t-transparent rounded-full animate-spin mb-4"></div>
+            <div className="w-12 h-12 border-4 border-blue-700 border-t-transparent rounded-full animate-spin mb-4"></div>
             <p className="text-slate-500 font-bold uppercase tracking-widest text-[10px]">Consulting Exam Board Specifications...</p>
           </div>
         )}
@@ -173,7 +173,7 @@ export default function App() {
 
               <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
                 <div className="flex justify-between items-start mb-4">
-                  <span className="bg-green-100 text-green-800 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                  <span className="bg-blue-100 text-blue-800 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                     {currentQuestion.topic.split(':')[0]}
                   </span>
                   <span className="text-slate-400 font-bold text-xs">[3 Marks]</span>
@@ -189,7 +189,7 @@ export default function App() {
                   value={userAnswer}
                   onChange={(e) => setUserAnswer(e.target.value)}
                   placeholder="Type your explanation chain here..."
-                  className="w-full min-h-[160px] p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-all resize-none text-slate-800"
+                  className="w-full min-h-[160px] p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all resize-none text-slate-800"
                   disabled={grading || !!feedback}
                 />
                 <div className="flex justify-end mt-4">
@@ -197,7 +197,7 @@ export default function App() {
                     <button 
                       onClick={handleSubmit}
                       disabled={!userAnswer.trim() || grading}
-                      className="bg-green-700 text-white px-6 py-3 rounded-xl font-bold hover:bg-green-800 transition-all flex items-center gap-2 disabled:opacity-50 active:scale-95"
+                      className="bg-blue-700 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-800 transition-all flex items-center gap-2 disabled:opacity-50 active:scale-95"
                     >
                       {grading ? 'Marking...' : 'Submit to Examiner'}
                     </button>
@@ -216,7 +216,7 @@ export default function App() {
             <div className="lg:col-span-5">
               {feedback ? (
                 <div className="bg-white rounded-2xl shadow-md border-2 border-slate-100 overflow-hidden animate-in fade-in slide-in-from-right-4">
-                  <div className={`p-6 text-center ${feedback.score === 3 ? 'bg-green-600' : feedback.score >= 2 ? 'bg-amber-500' : 'bg-rose-500'} text-white`}>
+                  <div className={`p-6 text-center ${feedback.score === 3 ? 'bg-blue-600' : feedback.score >= 2 ? 'bg-amber-500' : 'bg-rose-500'} text-white`}>
                     <p className="text-[10px] font-bold opacity-80 uppercase tracking-widest mb-1">Score</p>
                     <div className="text-5xl font-black">{feedback.score}<span className="text-2xl opacity-60">/3</span></div>
                   </div>
@@ -227,24 +227,24 @@ export default function App() {
                     </div>
                     <div className="pt-4 border-t border-slate-100">
                       <p className="text-[10px] font-bold text-slate-400 uppercase mb-2">Ideal Model Answer</p>
-                      <p className="text-sm text-slate-700 italic bg-slate-50 p-3 rounded-lg border-l-4 border-green-600">"{feedback.suggestedAnswer}"</p>
+                      <p className="text-sm text-slate-700 italic bg-slate-50 p-3 rounded-lg border-l-4 border-blue-600">"{feedback.suggestedAnswer}"</p>
                     </div>
                   </div>
                 </div>
               ) : (
                 <div className="bg-slate-900 text-white rounded-2xl p-6 shadow-sm">
-                  <h4 className="font-bold text-lg mb-4 text-green-400">Marking Strategy</h4>
+                  <h4 className="font-bold text-lg mb-4 text-blue-400">Marking Strategy</h4>
                   <div className="space-y-4">
                     <div className="flex gap-3">
-                      <div className="w-6 h-6 rounded bg-green-500/20 text-green-400 flex items-center justify-center font-bold text-xs flex-shrink-0">1</div>
+                      <div className="w-6 h-6 rounded bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-xs flex-shrink-0">1</div>
                       <p className="text-xs text-slate-300"><span className="text-white font-bold">Identify:</span> State a reason or feature.</p>
                     </div>
                     <div className="flex gap-3">
-                      <div className="w-6 h-6 rounded bg-green-500/20 text-green-400 flex items-center justify-center font-bold text-xs flex-shrink-0">2</div>
+                      <div className="w-6 h-6 rounded bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-xs flex-shrink-0">2</div>
                       <p className="text-xs text-slate-300"><span className="text-white font-bold">Explain:</span> Use "This means that..."</p>
                     </div>
                     <div className="flex gap-3">
-                      <div className="w-6 h-6 rounded bg-green-500/20 text-green-400 flex items-center justify-center font-bold text-xs flex-shrink-0">3</div>
+                      <div className="w-6 h-6 rounded bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-xs flex-shrink-0">3</div>
                       <p className="text-xs text-slate-300"><span className="text-white font-bold">Develop:</span> Use "Leading to..."</p>
                     </div>
                   </div>
@@ -268,7 +268,7 @@ export default function App() {
                 {history.map(item => (
                   <div key={item.id} className="bg-white p-3 rounded-xl border border-slate-200 flex justify-between items-center text-xs">
                     <span className="font-semibold text-slate-700">{item.question.questionText}</span>
-                    <span className="font-bold text-green-700">{item.feedback.score}/3</span>
+                    <span className="font-bold text-blue-700">{item.feedback.score}/3</span>
                   </div>
                 ))}
               </div>
